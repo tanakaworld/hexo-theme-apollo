@@ -8,8 +8,8 @@ block container
         h1.label-title= "Tags: " + page.tag
         .post-archive
             .archive-wrap.tag-cat
-                each posts in _.groupBy(page.posts.toArray(), function(p){return -p.date.format('YYYY')})
-                    ul.listing
+                ul.listing
+                    each posts in _.groupBy(page.posts.toArray(), function(p){return -p.date.format('YYYY')})
                         for post in posts
                             li
                                 a(href=url_for(post.path), title=post.title)
