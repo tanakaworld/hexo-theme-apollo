@@ -1,0 +1,5 @@
+if page && page.tags
+    .tags-list
+        for tag in page.tags.toArray()
+            .tags-list-item
+                a.tags-list-item-link(href=url_for(tag.path))= "#" + tag.name

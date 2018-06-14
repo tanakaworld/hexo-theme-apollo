@@ -1,0 +1,22 @@
+extends partial/layout
+
+block site_title
+    != page.tag + ' | ' + config.title
+
+block container
+    .post
+        h1.label-title= "Tags: " + page.tag
+        .post-archive
+            .archive-wrap.tag-cat
+                each posts in _.groupBy(page.posts.toArray(), function(p){return -p.date.format('YYYY')})
+                    ul.listing
+                        for post in posts
+                            li
+                                a(href=url_for(post.path), title=post.title)
+                                    span.tite= post.date.format(theme.date_formats.tag) + '  '
+                                    =post.title
+
+    include partial/tags
+
+block copyright
+    include partial/copyright

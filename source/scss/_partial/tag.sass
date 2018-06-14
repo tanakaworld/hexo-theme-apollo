@@ -1,0 +1,30 @@
+@import "../color"
+
+.tags-list
+  display: flex
+  flex-wrap: wrap
+  &-item
+    font-size: .9em
+    text-decoration: none
+    margin-right: .5em
+    &-link
+      color: $color-gray
+
+.tag-list
+  list-style: none
+  padding: 0
+  display: flex
+  flex-wrap: wrap
+  &-item
+    &:not(:first-child)
+      margin-left: 8px
+  &-link
+    color: $color-gray
+    &:before
+      content: '#'
+  &-count
+    color: $color-gray
+    &:before
+      content: '('
+    &:after
+      content: ')'

@@ -1,8 +1,6 @@
 menu:
-    Blog: /
     Archive: /archives/
-    Weibo: http://weibo.com/sunchongsheng
-    GitHub: https://github.com/pinggod
+    Author: https://tanaka.world/about
     Rss: /atom.xml
 
 favicon: /favicon.png
@@ -18,4 +16,10 @@ duoshuo:
 # ga: UA-xxxxxxxx-x
 
 # Copyright Infomation
-startyear: 2015
+startyear: 2014
+
+# Date_formats
+date_formats:
+  archive: "YYYY/MM/DD"
+  post: "MMM DD, YYYY"
+  tag: "YYYY/MM/DD"

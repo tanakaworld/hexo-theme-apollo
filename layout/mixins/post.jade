@@ -4,6 +4,7 @@ mixin postInfo(item)
         if item.from && (is_home() || is_post())
             a.post-from(href=item.from target="_blank" title=item.from)!= __('translated')
 
+        include ../partial/tag
 
 //- Index Page
 mixin posts()
@@ -29,7 +30,7 @@ mixin postList()
             - var itemYear = date(item.date, 'YYYY') - 0;
             - change = year !== itemYear;
             - year = change ? itemYear : year;
-            if change 
+            if change
                 h2.archive-year!= year
             .post-item
                 +postInfo(item)
