@@ -1,0 +1,249 @@
+@import ../color
+
+.post
+  padding-top: 1em
+
+.post-block
+  .post-title
+    margin: 0.65em 0
+    color: #2c3e50
+    font-size: 1.5em
+
+  .post-info
+    color: #7f8c8d
+    margin: 1.2em 0
+
+    span
+      margin-left: 0.5rem
+
+    a.post-from
+      margin-left: 0.5rem
+      padding: 3px 6px
+      border-radius: 5px
+      font-size: 12px
+      color: $color-white
+      background-color: $color-red
+
+.post-content
+  h2, h3, h4, h5, h6
+    position: relative
+    margin: 1em 0
+
+    a:before
+      content: "#"
+      color: $color-theme-main
+      position: absolute
+      left: -0.7em
+      top: -4px
+      font-size: 1.2em
+      font-weight: bold
+
+  h4, h5, h6
+    a:before
+      content: ""
+
+  h2, h3
+    font-size: 22px
+
+  h4, h5, h6
+    font-size: 18px
+
+  a
+    color: $color-theme-main
+    word-break: break-all
+
+  blockquote
+    margin: 2em 0
+    padding-left: 20px
+    border-left: 4px solid $color-theme-main
+
+  img
+    display: block
+    max-width: 100%
+    margin: 1em auto
+
+  & > table,
+  & > figure.highlight
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.125)
+
+  .tip
+    position: relative
+    margin: 2em 0
+    padding: 12px 24px 12px 30px
+    border-left: 4px solid $color-post-red
+    border-top-right-radius: 2px
+    border-bottom-right-radius: 2px
+    background-color: $color-post-bg
+
+    br
+      display: none
+
+  .tip:before
+    position: absolute
+    top: 14px
+    left: -12px
+    content: "!"
+    width: 20px
+    height: 20px
+    border-radius: 100%
+    color: $color-white
+    font-size: 14px
+    line-height: 20px
+    font-weight: bold
+    text-align: center
+    background-color: $color-post-red
+    font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif
+
+#mask
+  position: fixed
+  overflow: scroll
+  width: 100%
+  height: 100%
+  padding: 1em 0
+  background-color: rgba(0, 0, 0, 0.5)
+  z-index: 10
+
+  #mask-image
+    max-width: 95%
+
+code,
+pre
+  font-size: 0.8em
+  background-color: $color-post-bg
+  font-family: 'Roboto Mono', Monaco, courier, monospace
+
+.highlight
+  position: relative
+  margin: 1em 0
+  border-radius: 2px
+  line-height: 1.1em
+  background-color: $color-post-bg
+  overflow-x: auto
+
+  table, tr, td
+    width: 100%
+    border-collapse: collapse
+    padding: 0
+    margin: 0
+
+  .gutter
+    display: none
+
+  .code pre
+    padding: 1.2em 1.4em
+    line-height: 1.5em
+    margin: 0
+
+    .line
+      width: auto
+      height: 18px
+
+%code-base
+  position: absolute
+  top: 0
+  right: 0
+  color: $color-post-base
+  text-align: right
+  font-size: 0.75em
+  padding: 5px 10px 0
+  line-height: 15px
+  height: 15px
+  font-weight: 600
+
+=code-signs($keys)
+  @each $key in $keys
+    .highlight.#{$key} .code:after
+      content: to-upper-case($key)
+
+      @extend %code-base
+
+$signs: "html", "js", "bash", "css", "scss", "diff", "java", "xml", "python", "json", "swift", "ruby", "perl", "php", "c", "java", "cpp", "ts"
+
++code-signs($signs)
+
+.highlight.cpp .code:after
+  content: 'C++'
+
+pre
+  color: $color-code-main
+
+  .function .keyword,
+  .constant
+    color: $color-code-var
+
+  .keyword,
+  .attribute
+    color: $color-orange
+
+  .number,
+  .literal
+    color: $color-purple
+
+  .tag,
+  .tag .title,
+  .change,
+  .winutils,
+  .flow,
+  .lisp .title,
+  .clojure .built_in,
+  .nginx .title,
+  .tex .special
+    color: $color-blue
+
+  .symbol,
+  .symbol .string,
+  .value,
+  .regexp
+    color: $color-theme-main
+
+  .title
+    color: $color-code-title
+
+  .tag .value,
+  .string,
+  .subst,
+  .haskell .type,
+  .preprocessor,
+  .ruby .class .parent,
+  .built_in,
+  .sql .aggregate,
+  .django .template_tag,
+  .django .variable,
+  .smalltalk .class,
+  .javadoc,
+  .django .filter .argument,
+  .smalltalk .localvars,
+  .smalltalk .array,
+  .attr_selector,
+  .pseudo,
+  .addition,
+  .stream,
+  .envvar,
+  .apache .tag,
+  .apache .cbracket,
+  .tex .command,
+  .prompt
+    color: $color-theme-main
+
+  .comment,
+  .java .annotation,
+  .python .decorator,
+  .template_comment,
+  .pi,
+  .doctype,
+  .shebang,
+  .apache .sqbracket,
+  .tex .formula
+    color: $color-code-tex
+
+  .deletion
+    color: $color-code-deletion
+
+  .coffeescript .javascript,
+  .javascript .xml,
+  .tex .formula,
+  .xml .javascript,
+  .xml .vbscript,
+  .xml .css,
+  .xml .cdata
+    opacity: 0.5

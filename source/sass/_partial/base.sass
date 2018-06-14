@@ -1,0 +1,69 @@
+@import ../color
+
+\::selection
+  color: $color-white
+  background-color: $color-theme-main
+
+html, body
+  width: 100%
+  height: 100%
+
+body
+  margin: 0
+  color: $color-text
+  font-size: 15px
+  line-height: 1.6
+  background-color: $color-white
+  font-family: 'sourcesanspro', 'Helvetica Neue', Arial, sans-serif
+
+ul.nav,
+ul.post-list
+  margin: 0
+  padding: 0
+  list-style-type: none
+
+ul
+  margin: 1rem 0
+
+a, a:active
+  color: $color-link-active
+  text-decoration: none
+
+a.nav-list-link.active,
+a.nav-list-link:hover,
+a.post-title-link:hover
+  border-bottom: 2px solid $color-theme-main
+
+hr
+  border: 0
+
+code
+  margin: 0 2px
+  padding: 3px 5px
+  color: $color-orange
+  border-radius: 2px
+  white-space: inherit
+
+iframe, video
+  max-width: 100%
+  margin: 1rem auto
+  display: block
+
+table
+  width: 100%
+  margin: 1em auto
+
+  thead
+    background-color: $color-thead
+
+    th
+      padding: 5px
+      min-width: 20px
+
+  tbody
+    tr:nth-child(2n)
+      background-color: $color-tbody
+
+    td
+      padding: 5px
+      vertical-align: text-top
