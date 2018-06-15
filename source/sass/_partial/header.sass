@@ -1,20 +1,31 @@
+@mixin flex-center
+  display: flex
+  justify-content: center
+  align-items: center
+
 header
   min-height: 60px
+  +flex-center
 
   .logo-link
-    float: left
+    +flex-center
+    img
+      height: 60px
+    .title
+      margin-left: 4px
 
   .nav
-    float: right
-    left: 80px
+    margin-left: 24px
+    .nav-list-item
+      display: inline-block
+      padding: 19px 10px
 
-  .logo-link img
-    height: 60px
+      a
+        font-size: 16px
+        line-height: 1.4
 
-  .nav-list-item
-    display: inline-block
-    padding: 19px 10px
-
-    a
-      font-size: 16px
-      line-height: 1.4
+@media screen and (max-width: 700px)
+  header
+    flex-direction: column
+    .nav
+      margin-left: 0
