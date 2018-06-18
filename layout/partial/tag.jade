@@ -1,5 +1,8 @@
-if page && page.tags
+mixin tagInfo(item)
     .tags-list
-        for tag in page.tags.toArray()
+        for tag in item.tags.toArray()
             .tags-list-item
                 a.tags-list-item-link(href=url_for(tag.path))= "#" + tag.name
+
+if page && page.tags
+    +tagInfo(page)
