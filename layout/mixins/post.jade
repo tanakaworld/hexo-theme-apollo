@@ -1,24 +1,25 @@
 mixin postInfo(item)
-    .post-info
-        != full_date(item.date, 'll')
-        if item.from && (is_home() || is_post())
-            a.post-from(href=item.from target="_blank" title=item.from)!= __('translated')
+    if item.path !== "404/index.html"
+        .post-info
+            != full_date(item.date, 'll')
+            if item.from && (is_home() || is_post())
+                a.post-from(href=item.from target="_blank" title=item.from)!= __('translated')
 
-        include ../partial/tag
+            include ../partial/tag
 
 //- Index Page
 mixin posts()
     ul.home.post-list
         - page.posts.each(function (item) {
-            li.post-list-item
-                article.post-block
-                    h2.post-title
-                        a.post-title-link(href= url_for(item.path))
-                            != item.title
-                    +postInfo(item)
-                    //.post-content
-                    //    != item.excerpt
-                    //a.read-more(href= url_for(item.path))!= __('more')
+        li.post-list-item
+            article.post-block
+                h2.post-title
+                    a.post-title-link(href= url_for(item.path))
+                        != item.title
+                +postInfo(item)
+                //.post-content
+                //    != item.excerpt
+                //a.read-more(href= url_for(item.path))!= __('more')
         - })
 
 //- Archive Page
@@ -27,15 +28,15 @@ mixin postList()
         - var year = 0;
         - var change = false;
         - page.posts.each(function (item) {
-            - var itemYear = date(item.date, 'YYYY') - 0;
-            - change = year !== itemYear;
-            - year = change ? itemYear : year;
-            if change
-                h2.archive-year!= year
-            .post-item
-                +postInfo(item)
-                a.post-title-link(href= url_for(item.path))
-                    != item.title
+        - var itemYear = date(item.date, 'YYYY') - 0;
+        - change = year !== itemYear;
+        - year = change ? itemYear : year;
+        if change
+            h2.archive-year!= year
+        .post-item
+            +postInfo(item)
+            a.post-title-link(href= url_for(item.path))
+                != item.title
         - })
 
 //- Post Page
