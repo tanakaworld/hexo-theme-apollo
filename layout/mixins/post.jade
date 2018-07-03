@@ -1,5 +1,5 @@
 mixin postInfo(item)
-    if item.path !== "404/index.html"
+    if item.path !== "404.html"
         .post-info
             != full_date(item.date, 'll')
             if item.from && (is_home() || is_post())
