@@ -1,8 +1,8 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
 
-// 一次性编译 Sass 
+// 一次性编译 Sass
 gulp.task('sass', function () {
     return gulp.src('./source/sass/*.sass')
         .pipe(sass({outputStyle: 'compressed'}))
@@ -11,7 +11,7 @@ gulp.task('sass', function () {
 });
 
 // 实时编译
-gulp.task('default', ['sass'], function () {
-    gulp.watch('./source/sass/_partial/*.sass', ['sass']);
-    gulp.watch('./source/sass/*.sass', ['sass']);
+gulp.task('default', gulp.task('sass'), function () {
+    gulp.watch('./source/sass/_partial/*.sass', gulp.task('sass'));
+    gulp.watch('./source/sass/*.sass', gulp.task('sass'));
 });
